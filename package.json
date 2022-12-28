@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Adedejiosvaldo/my-programming-language#readme",
   "dependencies": {
     "moo": "^0.5.2",
+    "mz": "^2.7.0",
     "nearley": "^2.20.1"
   }
 }
