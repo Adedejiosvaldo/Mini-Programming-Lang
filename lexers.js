@@ -1,4 +1,5 @@
 const moo = require("moo");
+const fs = require("mz/fs");
 //custom lexemes i added
 //comment = ~
 //assign = =>
@@ -22,10 +23,17 @@ let lexer = moo.compile({
 
 lexer.reset(`~`);
 
-while (true) {
-  const tokens = lexer.next();
-  if (!tokens) {
-    break;
+async function main() {
+  const code = (await fs.readFile("example.small")).toString();
+  lexer.reset(code);
+  console.log(code);
+  while (true) {
+    const tokens = lexer.next();
+    if (!tokens) {
+      break;
+    }
+    console.log(tokens);
   }
-  console.log(tokens);
 }
+
+main().catch((err) => console.log(err.stack));
