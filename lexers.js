@@ -23,6 +23,8 @@ let lexer = moo.compile({
 
 lexer.reset(`~`);
 
+modules.export = lexers;
+
 async function main() {
   const code = (await fs.readFile("example.small")).toString();
   lexer.reset(code);
